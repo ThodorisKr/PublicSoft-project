@@ -1,0 +1,50 @@
+<div class="col-md-4 offset-md-3">
+
+    <h3>Update Person</h3>
+    
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label>FullName</label>
+            <input type="text" class="form-control" id ="name"
+                [(ngModel)] = "person.name" name = "name" required>
+        </div>
+    
+        <div class="form-group">
+            <label>MobilePhone</label>
+            <input type="text" class="form-control" id ="mobilePhone"
+                [(ngModel)] = "person.mobilePhone" name = "mobilePhone" required>
+        </div>
+    
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" id ="email"
+                [(ngModel)] = "person.email" name = "email" required>
+        </div>
+    
+        <div class="form-group">
+            <label>Comments</label>
+            <textarea rows="4" cols="50" class="form-control" id ="comments"
+            [(ngModel)] = "person.comments" name="comments"></textarea>
+        </div>
+    
+        <div class="form-group">
+            <label for="pet-select">--Please choose gender--</label>
+    
+        <select [(ngModel)] = "person.gender" name="gender" id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        </div>
+    
+        <div class="form-group">
+            <input type="checkbox"  id ="active"
+            [(ngModel)] = "person.active" name = "active">
+            <label>Active</label><br>
+        </div>
+    
+        <button class="btn btn-success" type="submit">Submit</button>
+        <a [routerLink] = "['/persons']" routerLinkActive="active" class="btn btn-danger  float-end">Cancel</a>
+    </form>
+    </div>
+    

@@ -1,0 +1,54 @@
+<div class="container">
+    <h2>Persons list</h2>
+
+    <div class="container">
+        <div class="row">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12" style="text-align: center">
+                    <input #myInput type="text" class="search-query form-control"
+                        placeholder="Search With Email Address" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button" (click)="findUserByEmailOrName(myInput.value)">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+
+        <div>
+            <a [routerLink]="['/create-person']" routerLinkActive="active"
+                class="btn btn-primary btn-lg float-right">Create new person</a>
+        </div>
+
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of persons">
+                    <td>{{person.name}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.mobilePhone}}</td>
+                    <td>
+                        <button (click)="updatePerson(person.id)" class="btn btn-info">Update</button>
+                        <button (click)="deletePerson(person.id)" class="btn btn-danger"
+                            style="margin-left: 10px">Delete</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
